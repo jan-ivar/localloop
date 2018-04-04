@@ -25,5 +25,5 @@ function whiteNoise() {
     ctx.putImageData(p, 0, 0);
     requestAnimationFrame(draw);
   });
-  return canvas.captureStream(60);
+  return canvas.captureStream(60).getTracks()[0];
 }

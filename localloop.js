@@ -7,7 +7,7 @@ function localPeerConnectionLoop(cfg) {
         await setD(await pc.createOffer(), pc, pcs[i ^ 1]);
         await setD(await pcs[i ^ 1].createAnswer(), pcs[i ^ 1], pc);
       } catch (e) {
-        console.error(e);
+        console.log(e);
       }
     }
   }));

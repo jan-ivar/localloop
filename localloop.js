@@ -1,4 +1,4 @@
-function localPeerConnectionLoop(cfg) {
+function localPeerConnectionLoop(cfg = {sdpSemantics: 'unified-plan'}) {
   const setD = (d, a, b) => Promise.all([a.setLocalDescription(d), b.setRemoteDescription(d)]);
   return [0, 1].map(() => new RTCPeerConnection(cfg)).map((pc, i, pcs) => Object.assign(pc, {
     onicecandidate: e => pcs[i ^ 1].addIceCandidate(e.candidate),
